@@ -2,10 +2,17 @@
   "name": "avalia-o-1",
   "version": "1.0.0",
   "description": "avaliação do professor Ivam",
+<<<<<<< HEAD
+  "main": "2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node 2.js"
+=======
   "main": "index.js",
   "scripts": {
     "start": "node ../quest.1.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+>>>>>>> bcbb7d64b36fcd9908908abade8601e78206d53e
   },
   "keywords": [],
   "author": "",
