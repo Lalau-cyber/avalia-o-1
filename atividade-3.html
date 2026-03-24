@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Frete e Desconto</title>
+    <link rel="stylesheet" href="atividade-3.css">
+</head>
+<body>
+
+    <div class="container">
+        <form id="formCalculo">
+            <h1>Finalizar Compra</h1>
+
+            <div class="regra-desconto">
+    <h3>🎁 Economize em suas compras:</h3>
+    <ul>
+        <li>Até <strong>R$ 200,00</strong>: Sem desconto</li>
+        <li>De <strong>R$ 200,00</strong> até <strong>R$ 500,00</strong>: Ganhe <strong>5% OFF</strong></li>
+        <li>Acima de <strong>R$ 500,00</strong>: Ganhe <strong>15% OFF</strong></li>
+    </ul>
+    <small>* O desconto é aplicado apenas sobre o valor dos produtos.</small>
+</div>
+
+            <div class="input-group">
+                <label for="valorCompra">Valor dos Produtos (R$)</label>
+                <input 
+                    type="number" 
+                    id="valorCompra" 
+                    step="0.01" 
+                    placeholder="Ex: 250.00" 
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="valorFrete">Valor do Frete (R$)</label>
+                <input 
+                    type="number" 
+                    id="valorFrete" 
+                    step="0.01" 
+                    placeholder="Ex: 15.00" 
+                    required
+                >
+            </div>
+
+            <button type="button" onclick="calcular()">
+                Calcular Total
+            </button>
+
+            <div id="resultado"></div>
+        </form>
+    </div>
+
+    <script src="atividade-3.js"></script>
+</body>
+</html>
