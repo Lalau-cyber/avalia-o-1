@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Preço com Imposto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffdef4 0%, #ff77c2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #380221;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ea66be;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #dc83ee 0%, #f35dd3 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .resultado {
+            display: none;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .resultado.sucesso {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+            display: block;
+        }
+
+        .resultado.erro {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+            display: block;
+        }
+
+        .resultado p {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .preco-final {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Preço</h1>
+        
+        <form onsubmit="calcular(event)">
+            <div class="form-group">
+                <label for="custo">Insira o custo do produto (R$)</label>
+                <input type="number" id="custo" step="0.01" placeholder="Ex: 2500,50" required>
+            </div>
+
+            <div class="form-group">
+                <label for="imposto">Insira o percentual de imposto (%)</label>
+                <input type="number" id="imposto" step="0.01" placeholder="Ex: 18" required>
+            </div>
+
+            <button type="submit">calcular</button>
+        </form>
+
+        <div id="resultado" class="resultado"></div>
+    </div>
+
+    <script src="quest.1.js"></script>
+    <script>
+        function calcular(event) {
+            event.preventDefault();
+            
+            const custo = parseFloat(document.getElementById('custo').value);
+            const imposto = parseFloat(document.getElementById('imposto').value);
+            const resultadoDiv = document.getElementById('resultado');
+
+            try {
+                const preco = calcularPrecoFinal(custo, imposto);
+                resultadoDiv.className = 'resultado sucesso';
+                resultadoDiv.innerHTML = `
+                    <p>✓ Cálculo realizado com sucesso!</p>
+                    <div class="preco-final">R$ ${preco.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</div>
+                `;
+            } catch (erro) {
+                resultadoDiv.className = 'resultado erro';
+                resultadoDiv.innerHTML = `<p>✕ ${erro.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
