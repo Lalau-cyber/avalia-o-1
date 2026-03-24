@@ -1,0 +1,144 @@
+/* Configurações Globais */
+:root {
+    --primary-color: #4CAF50;
+    --primary-hover: #45a049;
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container do Formulário */
+form {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50;
+}
+
+/* Inputs e Labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho */
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Botão */
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Área de Resultado */
+#resultado {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2rem;
+    min-height: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Classes utilitárias para o JS aplicar via style.color ou classList */
+.error-text {
+    color: var(--error-color);
+    background-color: #fdedec;
+}
+
+.success-text {
+    color: var(--success-color);
+    background-color: #eafaf1;
+}
+
+.regra-desconto {
+    background-color: #f0f7ff;
+    border-left: 5px solid #3498db;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.regra-desconto h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.regra-desconto ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.regra-desconto li {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.regra-desconto strong {
+    color: #2c3e50;
+}
+
+.regra-desconto small {
+    display: block;
+    font-style: italic;
+    color: #7f8c8d;
+    margin-top: 10px;
+}
