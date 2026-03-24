@@ -1,0 +1,13 @@
+{
+  "name": "avalia-o-1",
+  "version": "1.0.0",
+  "description": "avaliação do professor Ivam",
+  "main": "2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node 2.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
